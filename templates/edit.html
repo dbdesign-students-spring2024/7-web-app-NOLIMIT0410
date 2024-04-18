@@ -1,18 +1,63 @@
-{% extends 'base.html' %} {% block container %}
-<h2>Update</h2>
-<p>Edit a record in the MongoDB database collection.</p>
-<form method="POST" action="{{ url_for('edit_post', mongoid=mongoid) }}">
-  <p>
-    Your name:
-    <input type="text" id="fname" name="fname" value="{{doc.name}}" /><br />
-  </p>
-  <p>
-    Message:
-    <textarea id="fmessage" name="fmessage">{{doc.message}}</textarea>
-  </p>
-  <p>
-    <a href="{{ url_for('read')}}">Cancel</a>
-    <input type="submit" name="post-btn" value="Save" />
-  </p>
+{% extends 'base.html' %}
+
+{% block container %}
+<h2>Update Your Record</h2>
+<p>Edit Your Record</p>
+<form method="POST" action="{{ url_for('create_post') }}" class="workout-form">
+  <label for="date">Date:</label>
+  <input type="date" id="date" name="date" required><br>
+  
+  <label for="calory">Calories Burned (kcal):</label>
+  <input type="number" id="calory" name="calory" required min="0"><br>
+
+  <div id="exercises-container">
+      <div class="exercise">
+          <h3>Exercise Details</h3>
+          <label for="exercise">Exercise Name:</label>
+          <input type="text" id="exercise" name="exercise[]" required><br>
+          
+          <label for="reps">Repetitions:</label>
+          <input type="text" name="reps[]" required><br>
+          
+          <label for="time_hours">Time Spent:</label>
+          <input type="number" name="time_hours[]" min="0" placeholder="hours"> 
+          <input type="number" name="time_minutes[]" min="0" max="59" placeholder="minutes"><br>
+          
+          <label for="weights">Weight Lifted (lbs):</label>
+          <input type="number" name="weights[]" min="0"><br>
+          
+          <div class="button-container">
+            <button type="button" class="remove-exercise btn" onclick="removeExercise(this)">Remove</button>
+        </div>
+      </div>
+  </div>
+  <div class="button-container">
+    <button type="button" class="btn add-exercise-btn" onclick="addExercise()">+</button>
+</div>
+  <div class="form-actions">
+      <a href="{{ url_for('read') }}" class="btn">Cancel</a>
+      <input type="submit" value="Post Record" class="btn">
+  </div>
 </form>
+
+<script>
+  function addExercise() {
+    const container = document.getElementById('exercises-container');
+    const original = container.querySelector('.exercise');
+    const clone = original.cloneNode(true);
+    clone.querySelectorAll('input').forEach(input => input.value = '');
+    container.appendChild(clone);
+  }
+  
+  function removeExercise(element) {
+    const container = document.getElementById('exercises-container');
+    const exerciseBlocks = container.getElementsByClassName('exercise');
+    if (exerciseBlocks.length > 1) { 
+      element.closest('.exercise').remove();
+    } else {
+      alert('You must have at least one exercise.');
+    }
+  }
+  </script>
+
 {% endblock %}

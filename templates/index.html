@@ -1,11 +1,30 @@
 {% extends 'base.html' %}
 
 {% block container %}
-<h2>Welcome!</h2>
-<p>Welcome to the Flask app. This is the home page. Here are a few links to example pages you might find interesting.
+<section class="hero">
+    <h1>Welcome to Fitness Recorder!</h1>
+    <p>Track and improve your fitness journey effectively and easily.</p>
+</section>
+<section class="introduction">
+    <h2>What is Fitness Recorder?</h2>
+    <p>Fitness Recorder is your ultimate tool to log, analyze, and visualize your workout progress. Tailor-made to support your fitness goals.</p>
+</section>
+<section class="features">
+    <h2>Features</h2>
     <ul>
-        <li><a href="{{ url_for('read')}}">a page that displays information pulled from a MongoDB database collection</a></li>
-        <li><a href="{{ url_for('create')}}">a page with a form you can submit to create a new record in a MongoDB collection</a></li>
+        <li><strong>Log Workouts:</strong> Easily enter details about your workouts, including type, duration, and calories burned.</li>
+        <li><strong>Progress Tracking:</strong> View charts and graphs to see your progress over time.</li>
+        <li><strong>Goal Setting:</strong> Set and monitor your fitness goals.</li>
     </ul>
-</p>
+</section>
+<section class="cta">
+    <h2>Get Started</h2>
+    <p>Ready to take your fitness to the next level? Sign up today or log in to continue your progress.</p>
+    <a href="{{ url_for('signup') }}" class="btn">Sign Up</a>
+    <a href="{{ url_for('login') }}" class="btn">Login</a>
+</section>
+<section class="testimonials">
+    <h2>User Testimonials</h2>
+    <p>"Fitness Recorder has transformed how I track my workouts and stay motivated!" - Jane Doe</p>
+</section>
 {% endblock %}

@@ -1,20 +1,35 @@
 {% extends 'base.html' %}
 
 {% block container %}
-<h2>Read</h2>
-<p>This page shows information pulled from a MongoDB database collection.
-        
-    {% for doc in docs %}
-    <div>
-        <hr class="solid">
-        <p class="post">
-            Posted by {{doc.name}} at {{ doc.created_at.strftime("%H:%M on %d %B %Y") }}
-            <br/>
-            <a href="{{ url_for('edit',mongoid=doc._id)}}">Edit</a> | <a href="{{ url_for('delete',mongoid=doc._id)}}">Delete</a>
-            <br/>
-        </p>
-            
-    </div>
-    {%endfor%}
+<section class="overview">
+    <h1>Your Workout History</h1>
+    <p>Review your workout sessions and track your progress over time.</p>
+</section>
+<section class="history-records">
+    <h2>Detailed Records</h2>
+    <table class="records-table">
+        <thead>
+            <tr>
+                <th>Posted</th>
+                <th>Exercise Date</th>
+                <th>Calories</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for doc in docs %}
+            <tr>
+                <td>{{ doc.created_at.strftime("%d %B %Y")}}</td>
+                <td>{{ doc.date }}</td>
+                <td>{{ doc.calory }} kcal</td>
+                <td>
+                    <a href="{{ url_for('edit', mongoid=doc._id) }}">Edit</a> | 
+                    <a href="{{ url_for('delete', mongoid=doc._id) }}">Delete</a>
+                </td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+</section>
 </p>
 {% endblock %}

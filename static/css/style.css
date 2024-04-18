@@ -1,25 +1,242 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  color: #333;
+  height: 100%;
+}
+a{
+  text-decoration: none;
+}
+
 .container {
-  border: 2px solid;
-  width: 50%;
-  margin: 0 auto;
+  overflow: hidden;
+  display: flex;
+    flex-direction: column;  
+    min-height: 100vh;
 }
 
-header,
-footer,
-main {
-  padding: 20px;
+header {
+  background: #333;
+  color: #fff;
+  min-height: 7rem;
+  display: flex;
+  flex-direction: row wrap;
+  justify-content: space-around;
+  align-items: center;
+
 }
 
-header,
-main {
-  border-bottom: 2px solid;
-  margin-bottom: 5px;
+header a {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 16px;
 }
 
-p.post {
-  font-size: 12px;
+#site-name a{
+  font-size: 1.5rem;
+  font-style: italic;
+  color: #007BFF;
 }
 
+#main-menu ul {
+  list-style: none;
+}
+
+#main-menu ul li {
+  display: inline;
+  margin-left: 20px;
+}
+
+#login a {
+  margin-left: 15px;
+  font-size: 16px;
+  color: #0779e4; 
+}
+
+a:hover{
+  color:#045cbb
+}
+
+#login a:hover{
+  color: white;
+}
+
+/* Footer Styles */
 footer {
-  margin-bottom: 5px;
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
 }
+
+footer a {
+  color: #fff;
+}
+
+/* Main Styles */
+main{
+  margin: auto 10%;
+  padding: 20px;
+  margin-top: 20px;
+  flex: 1; 
+}
+
+/* Home Styles */
+.hero {
+  background: url('../images/fitness-background.jpg')no-repeat center center/cover;
+  color: white;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.features ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.features li {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.btn {
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  margin: 10px 5px;
+  display: inline-block;
+}
+
+.btn:hover {
+  background-color: darkblue;
+}
+
+.testimonials {
+  background-color: #f9f9f9;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/* History Styles */
+.history-records{
+  margin-bottom: 20px;
+    padding: 15px;
+    background: #f1f1f1;
+    border-radius: 8px;
+}
+.records-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.records-table th, .records-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.records-table th {
+  background-color: #f4f4f4;
+}
+
+.records-table td {
+  background-color: #fff;
+}
+
+.records-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.records-table tr:hover {
+  background-color: #eef;
+}
+
+.records-table td a{
+  color:#0779e4;
+}
+
+/* Exercise Styles */
+
+#exercises-container {
+  padding: 10px;
+  margin-top: 20px;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+}
+
+.exercise {
+  border: 2px solid #007BFF; 
+  margin-bottom: 10px;
+  padding: 5px;
+  background-color: #ffffff;
+  border-radius: 4px; 
+}
+
+.exercise p {
+  margin: 5px 0; 
+}
+
+input[type="text"], input[type="number"], input[type="date"] {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 30%;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end; 
+  margin-top: 10px; 
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;  
+  align-items: center;  
+}
+
+.add-exercise-btn{
+  border-radius: 100px;
+}
+
+/* login styles*/
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  width: 100%;
+  max-width: 320px; 
+}
+
+.login form {
+  width: 100%;
+}
+
+.login input[type="text"],
+.login input[type="password"] {
+  width: 100%; 
+  padding: 8px; 
+  margin-bottom: 15px; 
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.login input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
